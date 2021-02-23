@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--
+Katelyn Blalock 
+Week 5 Programming Lab
+10/01/2020
+-->
+
+<html lang="en">
+<head>
+<title>Soccer League Registration</title>
+<meta charset="utf-8">
+<script>
+//Initialize function to register children
+function registerChildren() {
+
+//Initialize counter and league variables
+var totalcount = 0;
+var junior = 0;
+var intermediate = 0;
+var senior = 0;
+
+do {
+	//Ask the user to input the first child's age, and give them a way to exit the loop
+	var age = prompt("Enter the next child's age, or type 'done' if there are no more children to register:","");
+
+	//Check that entry is between the ages of 4 and 15
+	if (age >= 4 && age <= 15) {
+			
+		//Initialize loop for assigning leagues
+		if (age <= 7) {
+			junior++;
+			}
+		
+		else if (age <= 11) {
+			intermediate++;
+			}
+		
+		else {
+			senior++;
+			}
+		
+		totalcount++;
+		}	
+
+	//Allow the user to break out of the loop when they hit Cancel
+	else if (age === null) {
+		break;
+		}
+		
+	//Alert the user that this child is unqualified
+	else if (age < 4 || age > 15) {
+		alert("Sorry, only children who are between the ages of 4 and 15 can register.");
+		}
+		
+	//Alert the user that their entry is invalid
+	else if (age != "done") {
+		alert("Invalid entry. Please enter an age between 4 and 15 or type 'done' if there are no more children to register.");
+		}
+	
+	}	
+while (age != "done")
+
+//Print the final count for each league and final total count
+document.write("<center><h1> Soccer League Registration </h1>"); 
+document.write("<p>Number of children in the Junior league: " + junior + "</p>"); 
+document.write("<p>Number of children in the Intermediate league: " + intermediate + "</p>"); 
+document.write("<p>Number of children in the Senior league: " + senior + "</p>");
+document.write("<h3>Total number of children registered: " + totalcount + "</h3></center>"); 
+}
+</script>
+</head>
+
+<!-- This is the webpage content for the soccer league registry -->
+<body>	
+<center>
+<div>	
+	<h1>Soccer League Registration</h1>
+	<p>Click the button below to start registering children for the soccer league. <br> Note: All children must be between 4 and 15 years old to register. </p>
+	<input type="button" value="Start" onclick="return registerChildren();">
+</div>	
+</center>
+</body>
+</html>
+
